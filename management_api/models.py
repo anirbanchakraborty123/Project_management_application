@@ -1,18 +1,20 @@
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from .user_manager import CustomUserManager
 
 # Customuser model
-class CustomUser(AbstractBaseUser):
+class CustomUser(AbstractBaseUser,PermissionsMixin):
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_joined = models.DateTimeField(default=timezone.now)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
 
