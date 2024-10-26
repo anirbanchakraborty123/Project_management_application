@@ -44,7 +44,7 @@ This is a RESTful API for managing projects.
 7. The API's will be accessible at 'http://localhost:8000/api/v1/' with mandatory JWT bearer access_token Authentication Header.
 ```
    - You can get new access_token using login creds-(username,passsowrd) on below apis
-   - Get new access_token 'POST api/v1/user/login/'
+   - Get new access_token 'POST api/v1/users/login/'
       - payload={
         email,password
       }
@@ -70,9 +70,9 @@ This is a RESTful API for managing projects.
 
 ### User Authentication
 
-- Register User (POST /api/v1/user/register/): Creates a new user.
-- Login User (POST /api/v1/user/login/): Authenticates and returns a token.
-- Get User Details (GET /api/v1/user/{id}/): Retrieves user details.
+- Register User (POST /api/v1/users/register/): Creates a new user.
+- Login User (POST /api/v1/users/login/): Authenticates and returns a token.
+- Get User Details (GET /api/v1/users/{id}/): Retrieves user details.
 - Update User (PUT/PATCH /api/v1/users/{id}/): Updates user info.
 - Delete User (DELETE /api/v1/users/{id}/): Deletes user account.
 
